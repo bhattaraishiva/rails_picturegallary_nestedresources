@@ -47,7 +47,7 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     category = Category.find(params[:category_id])
-    @picture = category.pictures.create(params[:picture])
+    @picture = category.pictures.create(params[:image])
 
     respond_to do |format|
       if @picture.save
