@@ -2,5 +2,5 @@
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Show', [@picture.category, @picture] %> |
+<%= link_to 'Back', category_pictures_path(@picture.category) %>
