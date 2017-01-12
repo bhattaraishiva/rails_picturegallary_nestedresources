@@ -47,7 +47,7 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     category = Category.find(params[:category_id])
-    @picture = category.pictures.create(params[:image])
+    @picture = category.pictures.create(picture_params)
 
     respond_to do |format|
       if @picture.save
@@ -67,7 +67,7 @@ class PicturesController < ApplicationController
     @picture = category.pictures.find(params[:id])
 
     respond_to do |format|
-      if @picture.update_attributes(params[:comment])
+      if @picture.update_attributes(picture_params)
         format.html { redirect_to [@picture.category, @picture], notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: [@picture.category, @picture]}
       else

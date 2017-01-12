@@ -10,5 +10,10 @@
   <%= @picture.category %>
 </p>
 
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image.url(:thumb) %>
+</p>
 <%= link_to 'Edit', edit_category_picture_path(@picture.category, @picture) %> |
 <%= link_to 'Back', category_pictures_path(@picture.category) %>
